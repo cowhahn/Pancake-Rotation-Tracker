@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/cowanhahn/Documents/GitHub/Pancake-Rotation-Tracker/Pancake-Rotation-Tracker.csproj": {}
+  },
+  "projects": {
+    "/Users/cowanhahn/Documents/GitHub/Pancake-Rotation-Tracker/Pancake-Rotation-Tracker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cowanhahn/Documents/GitHub/Pancake-Rotation-Tracker/Pancake-Rotation-Tracker.csproj",
+        "projectName": "Pancake-Rotation-Tracker",
+        "projectPath": "/Users/cowanhahn/Documents/GitHub/Pancake-Rotation-Tracker/Pancake-Rotation-Tracker.csproj",
+        "packagesPath": "/Users/cowanhahn/.nuget/packages/",
+        "outputPath": "/Users/cowanhahn/Documents/GitHub/Pancake-Rotation-Tracker/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/cowanhahn/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Emgu.CV": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            },
+            "Emgu.CV.runtime.mini.macos": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            },
+            "Emgu.CV.runtime.ubuntu-x64": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            },
+            "Emgu.CV.runtime.windows": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            },
+            "Emgu.CV.runtime.xamarin.mini.macos": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
