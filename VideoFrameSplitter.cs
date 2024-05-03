@@ -31,5 +31,8 @@ public class VideoFrameSplitter {
         }
         ExtractImages(InputPath, OutputPath);
         Console.WriteLine("Done!");
+        Console.WriteLine("Sending Command To Rebuild Video!");
+        VideoCreator.CreateVideo(OutputPath);
+        
     }
 }
