@@ -89,19 +89,6 @@ def checkImage(framename,videoname,sens,colors):
         #print(temp)
         centers.append(temp)
     count = len(centers)
-    '''for i in centers:
-        #print(i)
-        for y in centers:
-            #print("comparing", i, "to", y)
-            dist = (i[0]-y[0], i[1]-y[1])
-            dist = (dist[0]*dist[0], dist[1]*dist[1])
-            dist = (dist[0] + dist[1])
-            dist = math.sqrt(dist)
-            #print("Distance:",dist)
-            if dist >= 250:                   #This works to get rid of outliers and I dont know why it does it shouldnt
-                deleted.append(y)             #does not do above old code that should not be used idk why i thought this would work
-                centers.pop(centers.index(y))    
-                #print("deleted point: ", y)'''
     new_centers = []
     for i in range(len(centers)): #prunes all repetitive points inside the radius of a bearing in pixels.
         keep_point = True         #it tests if any marked points are within a radius of it if there is it deletes that point.
