@@ -35,6 +35,6 @@ public class VideoFrameSplitter {
         //Console.WriteLine("Sending Command To Rebuild Video!");
         //VideoCreator.CreateVideo(OutputPath);
         ImageProcessor ImageProcessor = new ImageProcessor();
-        ImageProcessor.CheckImage("frame0.jpg","c0156",.7f);
+        ImageProcessor.CheckImage("frame0.jpg","c0156",.8f);
     }
 }

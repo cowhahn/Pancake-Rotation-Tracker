@@ -12,28 +12,36 @@ public class ImageProcessor{
     int beta = -50;
     float alpha = 1.2f;
     int n = 0;
-    int radius = 50;
-    string TemplatePath = "./ImageTemplates/BallBearing2.png";
-    ImreadModes ImageReadType = ImreadModes.Unchanged;
-
-    public void CheckImage(string FrameName, string VideoName, float sens){
+    int radius = 30;
+    string TemplatePath = "./ImageTemplates/TestTemplate.png";
+    ImreadModes ImageReadType = ImreadModes.ReducedGrayscale2;
+    public bool DistanceBetween(List<Point> PrevPoints, Point pos){
+        foreach (Point item in PrevPoints){
+            double distx = item.X-pos.X;
+            double disty = item.Y-pos.Y;
+            distx *= distx;
+            disty *= disty;
+            double dist = Math.Sqrt(distx+disty);
+            if (dist<radius) return false;
+        }
+        return true;
+    }
+    public List<Point> CheckImage(string FrameName, string VideoName, float sens){
         MCvScalar red = new MCvScalar(255,0,0);
         Mat template = CvInvoke.Imread(TemplatePath, ImageReadType);
         Mat frame = CvInvoke.Imread("./FrameExport/"+VideoName+"/"+FrameName, ImageReadType);
         List<Single> ResData = new List<Single>();
         List<Point> loc = new List<Point>();
         Mat[] res = new Mat[6];
-        int h = template.Height/2;
-        int w = template.Width/2;
+        int h = template.Height;
+        int w = template.Width;
         TemplateMatchingType[] MatchAlgorithms = [TemplateMatchingType.Ccoeff,
         TemplateMatchingType.CcoeffNormed,
         TemplateMatchingType.Sqdiff,
         TemplateMatchingType.SqdiffNormed,
         TemplateMatchingType.Ccorr,
         TemplateMatchingType.CcorrNormed];
-        CvInvoke.CvtColor(frame,frame,ColorConversion.Bgr2Gray);
-        CvInvoke.CvtColor(template, template,ColorConversion.Bgr2Gray);
-        CvInvoke.ConvertScaleAbs(frame,frame,alpha,beta);
+        CvInvoke.Threshold(frame,frame,128,255,ThresholdType.Binary);
         for (int i = 0; i < MatchAlgorithms.Count(); i++){
             Mat TempMat = new Mat();
             CvInvoke.MatchTemplate(frame,template,TempMat,MatchAlgorithms[i]);
@@ -49,13 +57,14 @@ public class ImageProcessor{
         int W_0 = res[Testing].Width;
         for (int i = 0; i < ResDataCount; i++){
             if (ResData[i] <= sens){
-                Point pos = new Point((i%W_0)+w,(i/W_0)+h);
-                loc.Add(pos);
-                CvInvoke.DrawMarker(frame,pos,red,MarkerTypes.Square,50);
+                Point pos = new Point(i%W_0,(i/W_0)+h);
+                if (DistanceBetween(loc, pos)){
+                    loc.Add(pos);
+                }
             }
+            
         }
-        Console.WriteLine(loc.Count());
-        frame.Save("output.jpg");
+        return loc;
     }
 
 }
