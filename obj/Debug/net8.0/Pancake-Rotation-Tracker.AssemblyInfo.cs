@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pancake-Rotation-Tracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+596e51504293adb80e7313228bb98405ba91516a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e77a6402e70603ee268efe7cb97fcb5c2b8b1ce8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pancake-Rotation-Tracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pancake-Rotation-Tracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

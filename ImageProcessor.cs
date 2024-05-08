@@ -9,13 +9,10 @@ using Emgu.CV.Structure;
 namespace Pancake_Rotation_Tracker;
 
 public class ImageProcessor{
-    int beta = -50;
-    float alpha = 1.2f;
-    int n = 0;
-    int radius = 30;
-    string TemplatePath = "./ImageTemplates/TestTemplate.png";
-    ImreadModes ImageReadType = ImreadModes.ReducedGrayscale2;
-    public bool DistanceBetween(List<Point> PrevPoints, Point pos){
+    static int radius = 30;
+    static string TemplatePath = "./ImageTemplates/TestTemplate.png";
+    static ImreadModes ImageReadType = ImreadModes.ReducedGrayscale2;
+    static bool DistanceBetween(List<Point> PrevPoints, Point pos){
         foreach (Point item in PrevPoints){
             double distx = item.X-pos.X;
             double disty = item.Y-pos.Y;
@@ -26,7 +23,7 @@ public class ImageProcessor{
         }
         return true;
     }
-    public List<Point> CheckImage(string FrameName, string VideoName, float sens){
+    public static List<Point> CheckImage(string FrameName, string VideoName, float sens){
         MCvScalar red = new MCvScalar(255,0,0);
         Mat template = CvInvoke.Imread(TemplatePath, ImageReadType);
         Mat frame = CvInvoke.Imread("./FrameExport/"+VideoName+"/"+FrameName, ImageReadType);
