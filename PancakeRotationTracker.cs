@@ -5,6 +5,13 @@ using Emgu.CV;
 namespace Pancake_Rotation_Tracker;
 
 public class PancakeRotationTracker{
+        static double DoAvgCalculation(List<List<Point>> MarkedData, int fps){
+            List<double> velocities = new List<double>();
+            for (int i = 1; i < MarkedData.Count(); i++){
+                velocities.Add(DataProcessor.AverageAngularVelocityOfCluster(MarkedData[i-1],MarkedData[i], fps));
+            }
+            return DataProcessor.AverageVideoVelocity(velocities);
+        }
         static void Main(string[] args){
         List<List<Point>> MarkedData = new List<List<Point>>();
         string? InputPath = null;
@@ -29,11 +36,6 @@ public class PancakeRotationTracker{
             Console.WriteLine(SortedLoc.Count());
         }
         Console.WriteLine("Amount of Frames: "+MarkedData.Count());
-        /*foreach (List<Point> item in MarkedData){
-            foreach(Point point in item){
-                Console.Write(point);
-            }
-            Console.Write("\n");
-        }*/
+        Console.WriteLine("The average Angular Velocity is: "+ DoAvgCalculation(MarkedData,240));
     }
 }

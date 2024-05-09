@@ -29,7 +29,7 @@ public class ImageProcessor{
         Mat frame = CvInvoke.Imread("./FrameExport/"+VideoName+"/"+FrameName, ImageReadType);
         List<Single> ResData = new List<Single>();
         List<Point> loc = new List<Point>();
-        Mat[] res = new Mat[6];
+        Mat res = new Mat();
         int h = template.Height;
         int w = template.Width;
         TemplateMatchingType[] MatchAlgorithms = [TemplateMatchingType.Ccoeff,
@@ -39,19 +39,13 @@ public class ImageProcessor{
         TemplateMatchingType.Ccorr,
         TemplateMatchingType.CcorrNormed];
         CvInvoke.Threshold(frame,frame,128,255,ThresholdType.Binary);
-        for (int i = 0; i < MatchAlgorithms.Count(); i++){
-            Mat TempMat = new Mat();
-            CvInvoke.MatchTemplate(frame,template,TempMat,MatchAlgorithms[i]);
-            TempMat.Save("./TestOutputs/"+MatchAlgorithms[i].ToString()+".jpg");
-            res[i] = TempMat;
-        }
-        int Testing = 3;
-        Single[,] PixelData = new Single[res[Testing].Height,res[Testing].Width];
-        foreach (Single item in res[Testing].GetData()){
+        CvInvoke.MatchTemplate(frame,template,res,MatchAlgorithms[3]);
+        Single[,] PixelData = new Single[res.Height,res.Width];
+        foreach (Single item in res.GetData()){
             ResData.Add(item);
         }
         int ResDataCount = ResData.Count();
-        int W_0 = res[Testing].Width;
+        int W_0 = res.Width;
         for (int i = 0; i < ResDataCount; i++){
             if (ResData[i] <= sens){
                 Point pos = new Point(i%W_0,(i/W_0)+h);
