@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{FBBB8119-F7D7-4612-AE6E-586331813591}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MultiobjectTemplateTracking PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/MainWindow.axaml">
+    <Files>
+      <File FileName="Program.cs" Line="23" Column="2" />
+      <File FileName="Views/MainWindow.axaml" Line="21" Column="1" />
+      <File FileName="Views/MainWindow.axaml.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MultiobjectTemplateTracking">
+            <Node name="MultiobjectTemplateTracking">
+              <Node name="Views">
+                <Node name="MainWindow.axaml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

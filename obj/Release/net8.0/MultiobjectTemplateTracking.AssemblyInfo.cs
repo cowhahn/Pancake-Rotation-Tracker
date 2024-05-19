@@ -11,9 +11,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("MultiobjectTemplateTracking")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+576ce2eae10774969cfe8ef15c7137b1c1931309")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MultiobjectTemplateTracking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MultiobjectTemplateTracking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
