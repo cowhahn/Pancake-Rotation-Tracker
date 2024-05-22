@@ -1,11 +1,9 @@
 using System.Drawing;
-using System.Runtime.CompilerServices;
 using Emgu.CV;
 using Emgu.CV.CvEnum;
-using Emgu.CV.PpfMatch3d;
-using Emgu.CV.Reg;
 using Emgu.CV.Structure;
-using System.Collections.Generic;
+using MultiobjectTemplateTracking.Views;
+
 
 namespace MultiobjectTemplateTracking;
 
@@ -49,13 +47,14 @@ public class ImageProcessor{
             if (ResData[i] <= sens){
                 Point pos = new Point(i%W_0,(i/W_0)+h);
                 if (DistanceBetween(loc, pos)){
-                    //CvInvoke.DrawMarker(frame,pos,red,MarkerTypes.Cross,20);
+                    CvInvoke.DrawMarker(frame,pos,red,MarkerTypes.Cross,20);
                     loc.Add(pos);
                 }
             }
             
         }
         //frame.Save("./MarkedFrames/"+VideoName+"/"+FrameName);
+        MainWindow.CurrentImage = frame.ToBitmap();
         return loc;
     }
 

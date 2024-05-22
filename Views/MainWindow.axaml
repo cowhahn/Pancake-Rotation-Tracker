@@ -7,14 +7,36 @@
         x:Class="MultiobjectTemplateTracking.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="MultiobjectTemplateTracking">
+        Title="Multi Object Template Tracking"
+		CanResize="False"
+		Width="800"
+		Height="450">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+	<Grid
+		Background="Gainsboro"
+		HorizontalAlignment="Center"
+		VerticalAlignment="Top"
+		ColumnDefinitions="Auto,*,Auto"
+		RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+		Width="800"
+		Height="450">
+		
+		<TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="30" HorizontalAlignment="Center">
+			Cowan's Template Tracking Program
+		</TextBlock>
+		
+		<TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="TemplatePath">Template Path</TextBox>
+		<Button Grid.Column="2" Grid.Row="1" Name="TemplateSelectButton" Click="SelectTemplateFile">File Select</Button>
 
-    <TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+		<TextBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Name="VideoPath">Video Path</TextBox>
+		<Button Grid.Column="2" Grid.Row="2" Name="VideoSelectButton" Click="SelectVideoFile">File Select</Button>
+		<StackPanel Grid.Row="3" Grid.ColumnSpan="3" Margin="20">
+			<TextBlock HorizontalAlignment="Center">Sensitivity Value</TextBlock>
+			<TextBox HorizontalAlignment="Center" Text="{Binding #SensitivitySelector.Value}"/>
+			<Slider Name="SensitivitySelector" Minimum="0" Maximum="1" Value=".8"></Slider>
+		</StackPanel>
+		<Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Name="TemplateSelectScreen" IsEnabled="False" Click="SwitchToTemplateScreen">Select Template From Video</Button>
+		<Button Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" Click="StartClicked">Start</Button>
+		<Image Name="OutputImage" Grid.Column="0" Grid.Row="5" MaxHeight="225" MaxWidth="400" Source="{DynamicResource #CurrentImage}"></Image>
+	</Grid>
 </Window>
